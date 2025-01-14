@@ -8,6 +8,7 @@ import { Toast } from 'primereact/toast';
 
 export default function CountdownTool() {
     const toast = useRef(null);
+    // TODO: This shouldn't be hardcoded, find a function for retrieving the base url?
     const baseURL = "http://localhost:3000";
 
     const [now, setNow] = useState(new Date())
@@ -32,7 +33,9 @@ export default function CountdownTool() {
         toast.current.show({ severity: 'info', summary: 'Info', detail: 'Link Copied!', life: 3000 });
     };
 
+    // TODO: This is duplicate code from the CountdownView, pass the timestamp as a prop?
     const getTimeRemaining = () => {
+        const targetTime = new Date(timestamp * 1000);
         const today = now.getTime() / 1000;
         const seconds = Math.floor((targetTime.getTime() / 1000) - today);
 
@@ -49,15 +52,15 @@ export default function CountdownTool() {
         }
 
         return countdown;
-    };
+    };    
 
     const showCountdown = () => {
         return (
-            <div className="flex items-center justify-center w-full">
-                <div className="font-bold text-4xl mt-12 h-screen">
-                    {getTimeRemaining()}
-                </div>
+            <div className="flex items-center justify-center h-screen w-screen">
+            <div className="font-bold text-8xl mt-12">
+                {getTimeRemaining()}
             </div>
+        </div>            
         )
     };
 

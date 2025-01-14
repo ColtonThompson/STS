@@ -1,4 +1,4 @@
-import CountdownTool from "./components/CountdownTool";
+import ToolMenu from "./components/menu/ToolMenu";
 
 export const metadata = {
   title: "Streamer Tool Suite",
@@ -7,8 +7,11 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div>
-      <CountdownTool/>
+    <div className="block text-center">
+      <div className="justify-center items-center w-screen">
+        <h2>Streamer Tool Suite</h2>
+        <ToolMenu />
+      </div>
     </div>
   );
 }

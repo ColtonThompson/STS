@@ -22,7 +22,12 @@ export default function CountdownView() {
         const minutes = Math.floor((seconds % 3600) / 60);
         const remainingSeconds = seconds % 60;
 
-        const countdown = days + " days " + hours + " hrs " + minutes + " mins " + remainingSeconds + " seconds";
+        let countdown = "";
+        if (days <= 0 && hours <= 0 && minutes <= 0 && remainingSeconds <= 0) {
+            countdown = "ITS HAPPENING NOW!"
+        } else {
+            countdown = days + " days " + hours + " hrs " + minutes + " mins " + remainingSeconds + " seconds";
+        }
 
         return countdown;
     };
@@ -35,5 +40,4 @@ export default function CountdownView() {
             </div>
         </div>
     );
-
 }

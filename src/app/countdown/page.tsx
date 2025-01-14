@@ -1,4 +1,4 @@
-import CountdownView from "../components/CountdownView";
+import CountdownView from "../components/countdown/CountdownView";
 
 export default function Index() {
   return (
