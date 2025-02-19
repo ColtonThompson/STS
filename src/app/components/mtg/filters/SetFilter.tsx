@@ -7,7 +7,7 @@ export default function SetFilter({ onValueChange }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [cardSets, setCardSets] = useState([]);
-    const [cardSetNames, setCardSetNames] = useState([]);
+    const [cardSetNames, setCardSetNames] = useState([ 'None' ]);
     const [selectedSet, setSelectedSet] = useState(null);
   
     useEffect(() => {
@@ -42,7 +42,6 @@ export default function SetFilter({ onValueChange }) {
           setLoading(false);
         }
       }
-  
       fetchData();
     }, []); // Empty dependency array ensures this runs only once on mount
   
