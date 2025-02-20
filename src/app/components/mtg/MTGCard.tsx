@@ -1,6 +1,8 @@
 import {useState, useEffect} from "react";
 import {Image} from "primereact/image";
+import localFont from 'next/font/local'
 
+const myFont = localFont({src: '../../../../public/fonts/Matrix Bold.ttf'})
 export default function MTGCard(props) {
 
     function getColorForRarity(rarity: string) {
@@ -19,17 +21,19 @@ export default function MTGCard(props) {
     }
 
     return (
-        <div className="text-center border-slate-600 border-solid bg-slate-900">
-            <div className="mt-2">
-                <h4 className="text-bold">{props.name}</h4>
-                <p className={getColorForRarity(props.rarity)}>{props.rarity.toUpperCase()}</p>
-            </div>
-            <div className="mb-8 object-fit max-w-full max-h-full">
-                <Image
-                    src={props.cardImageUrl}
-                    alt={props.key}
-                    preview
-                />
+        <div className={myFont.className}>
+            <div className="text-center border-slate-600 border-solid bg-slate-900">
+                <div className="mt-2">
+                    <p className="text-2xl">{props.name}</p>
+                    <p className={getColorForRarity(props.rarity)}>{props.rarity.toUpperCase()}</p>
+                </div>
+                <div className="mb-8 object-fit max-w-full max-h-full">
+                    <Image
+                        src={props.cardImageUrl}
+                        alt={props.key}
+                        preview
+                    />
+                </div>
             </div>
         </div>
     );
