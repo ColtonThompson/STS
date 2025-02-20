@@ -111,7 +111,7 @@ export default function MTGLanding() {
         <MTGPaginator onValueChange={handlePageChange}/>
       </div>
       <div className="container mx-auto px-4 border-solid box-border h-128 w-128 p-4 border-4">
-        <div className="grid grid-cols-4 grid-rows-8 gap-8">
+        <div className="grid grid-cols-4 grid-rows-8 gap-4">
           {checkIfNoData()}
           {getCardsForFilter().map((card) => {
             // Only show cards with image data
@@ -120,6 +120,7 @@ export default function MTGLanding() {
                 <MTGCard
                   key={card.multiverseid}
                   name={card.name}
+                  rarity={card.rarity}
                   cardImageUrl={card.imageUrl}
                 />
               );
