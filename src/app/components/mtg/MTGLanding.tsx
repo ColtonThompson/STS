@@ -121,6 +121,8 @@ export default function MTGLanding() {
                   key={card.multiverseid}
                   name={card.name}
                   rarity={card.rarity}
+                  type={card.type}
+                  colors={card.colors}
                   cardImageUrl={card.imageUrl}
                 />
               );
