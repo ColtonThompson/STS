@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import MTGCard from "./MTGCard";
-import { Metadata } from "next";
 import SetFilter from "./filters/SetFilter";
 import MTGPaginator from "./MTGPaginator";
+import Loading from "@/app/components/Loading";
 
 export default function MTGLanding() {
   const [data, setData] = useState(null);
@@ -46,6 +46,7 @@ export default function MTGLanding() {
 
   const handlePageChange = async (value) => {
     setCardsPage(value);
+    setLoading(true);
     await fetchData();
   };  
 
@@ -54,7 +55,10 @@ export default function MTGLanding() {
   }, []); // Empty dependency array ensures this runs only once on mount
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+
+        <Loading/>
+    );
   }
 
   if (error) {
@@ -105,7 +109,6 @@ export default function MTGLanding() {
       
       <div className="justify-center items-center w-96 m-4">
         <SetFilter onValueChange={handleChangeCardSetFilter} />
-        
       </div>
       <div className="mb-4">
         <MTGPaginator onValueChange={handlePageChange}/>
